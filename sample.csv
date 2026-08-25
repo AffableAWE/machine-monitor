@@ -1,0 +1,49 @@
+# message_id,timestamp,sensor,value
+
+# Idle
+a1,100,power,0.20
+a2,100,temperature,24.0
+a3,100,vibration,0.10
+
+# Starting
+b1,105,power,2.40
+b2,105,temperature,28.0
+b3,105,vibration,1.20
+
+# Running. The retransmitted b3 is ignored.
+c1,110,power,6.10
+b3,105,vibration,1.20
+c2,110,temperature,40.0
+c3,110,vibration,2.30
+
+# This t=112 message arrives after t=115 but is still inside the 5-second window.
+d1,115,power,6.20
+e1,112,vibration,2.45
+d2,115,temperature,45.0
+d3,115,vibration,7.80
+
+# Temperature warning
+f1,120,power,6.00
+f2,120,temperature,84.0
+f3,120,vibration,3.00
+
+# Healthy again
+g1,125,power,6.10
+g2,125,temperature,55.0
+g3,125,vibration,2.50
+
+# Power has not reported for 40 seconds, so its last value is stale.
+h1,165,temperature,35.0
+h2,165,vibration,0.40
+
+# A unique message for t=120 is now far too late and is dropped.
+late1,120,vibration,1.00
+
+# Link returns and the machine is idle.
+i1,170,power,0.15
+i2,170,temperature,30.0
+i3,170,vibration,0.10
+
+# Malformed lines are logged and skipped.
+bad1,175,humidity,50
+bad2,175,power,--

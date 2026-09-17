@@ -8,7 +8,7 @@ use std::process;
 
 fn main() {
     if let Err(error) = run() {
-        eprintln!("machine-monitor: {error}");::
+        eprintln!("machine-monitor: {error}");
         process::exit(1);
     }
 }

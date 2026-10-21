@@ -1,6 +1,6 @@
 # Machine Monitor
 
-A small Rust program that processes unreliable temperature, vibration, and power readings and reports the machine state at each timestamp.
+A small Rust program that processes unreliable temperature, vibration, and power readings and reports the machine state at each timestamp!
 
 ## Run
 
